@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
-import SelectId from '~/components/SelectId';
+import { Link } from '@builder.io/qwik-city';
 
 export default component$(() => {
-  return <SelectId id={'1'} />;
+  return <Link href={`/1`}>Next</Link>;
 });
