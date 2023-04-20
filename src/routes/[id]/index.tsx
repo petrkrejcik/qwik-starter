@@ -13,15 +13,19 @@ export const useRandom = routeLoader$(async (request) => {
 
 export default component$(() => {
   const { id } = useLocation().params;
+  const location = useLocation();
+  const loading = location.isNavigating;
   const random = useRandom().value;
 
   return (
     <>
       <div>
-        {id}: {random}
+        {id}: {loading ? "loading" : random}
       </div>
-      <Link href={`/`} style={{marginRight: '10px'}}>Home</Link>
-      <Link href={`/${parseInt(id) + 1}`} >Next</Link>
+      <Link href={`/`} style={{ marginRight: "10px" }}>
+        Home
+      </Link>
+      <Link href={`/${parseInt(id) + 1}`}>Next</Link>
     </>
   );
 });
